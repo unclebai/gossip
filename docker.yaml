@@ -1,0 +1,16 @@
+version: '2'
+
+networks:
+  # 网络
+  gossip_network:
+    external: true
+
+services:
+  gossip_{{INSTANCE}}:
+    container_name: gossip_{{INSTANCE}}
+    image: gossip
+    command: /gossip
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    restart: always
+    networks:
+      - gossip_network
